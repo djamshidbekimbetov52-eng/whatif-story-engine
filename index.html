@@ -1,1 +1,85 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatIf Story Engine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 25px;
+      font-family: Arial, sans-serif;
+      background: #101522;
+      color: white;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #1b2435;
+      padding: 25px;
+      border-radius: 18px;
+    }
+    h1 { color: #8ab4ff; }
+    textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #477cff;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    #result {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WhatIf Story Engine</h1>
+    <p>Turn impossible questions into cinematic stories.</p>
+
+    <textarea id="idea" placeholder="What if the Moon disappeared?"></textarea>
+
+    <select id="length">
+      <option>5 minutes</option>
+      <option>10 minutes</option>
+      <option>20 minutes</option>
+    </select>
+
+    <button onclick="generateStory()">Generate Story</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function generateStory() {
+      const idea = document.getElementById("idea").value.trim();
+      const length = document.getElementById("length").value;
+      const result = document.getElementById("result");
+
+      if (!idea) {
+        result.textContent = "Please enter your What If idea!";
+        return;
+      }
+
+      result.textContent =
+        "WHAT IF: " + idea +
+        "\n\nDuration: " + length +
+        "\n\n1. THE HOOK\nImagine a world where " + idea +
+        "\n\n2. THE BEGINNING\nEverything changes. People begin to notice something unusual.\n\n3. THE ESCALATION\nThe consequences become bigger and more surprising.\n\n4. THE CLIMAX\nThe world faces its biggest turning point.\n\n5. THE ENDING\nA final unexpected revelation changes everything.";
+    }
+  </script>
+</body>
+</html>
+
